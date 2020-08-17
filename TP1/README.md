@@ -26,4 +26,7 @@ de sécurité créé automatiquement lors du lancement de l'instance (sg...-laun
 Si le nom est dans le dns dynamique (my.noip.com par example) une page Web
 est visible sur (par exemple) : http://gudule.zapto.org/
 
+_Remarque :_ On aurait pu créer un nouveau groupe de sécurité avec uniquement
+les règles d'accès à HTTP (et HTTPS...) et ajouter ce groupe à l'instance. Ce qui
+serait pratique si nous avions plusieurs serveurs Web déployés.
 
