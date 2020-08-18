@@ -12,7 +12,7 @@ resource "aws_subnet" "subnet_example" {
    map_public_ip_on_launch = true
 }
 
-resource "aws_internet_gateway" "defaut" {
+resource "aws_internet_gateway" "default" {
    vpc_id = aws_vpc.vpc_example.id
 }
 

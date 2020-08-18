@@ -16,14 +16,14 @@ resource "aws_security_group" "sg_tfinstance1" {
    ingress {
      from_port = "22"
      to_port   = "22"
-     protocole = "tcp"
+     protocol  = "tcp"
      cidr_blocks = [ "0.0.0.0/0" ]
    }
    # autorise http de partout
    ingress {
      from_port = "80"
      to_port   = "80"
-     protocole = "tcp"
+     protocol  = "tcp"
      cidr_blocks = [ "0.0.0.0/0" ]
    }
    # autorise icmp (ping)
@@ -40,9 +40,9 @@ resource "aws_instance" "tfinstance1" {
    ami = "ami-0bcc094591f354be2"
    instance_type = "t2.micro"
    key_name = "tfkeypair1"
-   vpc_security_groups_ids = [ aws_security_group.sg_tfinstance1.id ]
+   vpc_security_group_ids = [ aws_security_group.sg_tfinstance1.id ]
    subnet_id = aws_subnet.subnet_example.id
-   private_ip = "10.42.1.11"
+   private_ip = "10.42.1.10"
    associate_public_ip_address = "true"
    user_data = file("../Scripts/instance_init1.sh")
    tags = {
