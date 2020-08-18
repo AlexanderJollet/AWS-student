@@ -1,0 +1,9 @@
+Example qui crée
+ 
+Un vpc relié à internet avec un réseau privé 10.42.1.0/24
+Une instance avec sa keypair et son groupe de sécurité
+(ssh + http) et son script d'init
+
+Prerequis: créer les clef avec ssh-keygent dans ssh-keys
+
+
