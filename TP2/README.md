@@ -6,6 +6,11 @@ avec l'archi suivante :
 - Une instance fait tourner Apache2, PHP et Wordpress
 - Une instance fait tourner un serveur MariaDB (ou PostgreSQL)
 
+Testez avec un tunnel SSH que vous pouvez accéder au Wordpress à partir
+de votre poste sans ouvrir l'accès HTTP/HTTPS dans le groupe de sécurité.
+Ensuite ouvrez le port sur le groupe de sécurité et accédez y sur l'IP
+publique directement.
+
 Le site est accessible pour tous sur l'IP de l'instance Apache2/PHP (ouvrir
 le groupe de sécurité correspondant)
 
