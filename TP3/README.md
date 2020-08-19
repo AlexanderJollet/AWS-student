@@ -13,6 +13,16 @@ Supprimez les clefs `id_rsa*` du répertoire ssh-key si besoin.
 
 Générer les clefs à nouveau.
 
+~~~~
+cp -r ../TFex/Scripts .
+mkdir ssh-keys
+cp ../TFex/generate_keys ssh-keys
+mkdir Tf
+cp ../Tf/*tf ../Tf/go* Tf/
+cd Tf
+terraform init
+~~~~
+
 Modifier le plan terraform (instances.tf) pour créer deux instances
 avec deux IP privées différentes.
 
