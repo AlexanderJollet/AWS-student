@@ -2,7 +2,7 @@
 
 function generate_keypair() {
     keyfile=$1
-    if [ "${keyfile}" == "id_rsa_aws" ]
+    if [ "${keyfile}" == "id_rsa_bastion" ]
     then 
 	comment="bastion"
     else
@@ -13,8 +13,9 @@ function generate_keypair() {
 	echo "${keyfile} found! Not generating it."
     else
 	echo "Generating keypair for ${comment}: ${keyfile}"
-	ssh-keygen -q -t rsa -b 2028 -N '' -C ${comment} -f ${keyfile}
+	ssh-keygen -q -t rsa -b 2048 -N '' -C ${comment} -f ${keyfile}
     fi
 }
 
-generate_keypair id_rsa_tfkeypair1
+generate_keypair id_rsa_bastion
+generate_keypair id_rsa_instances
