@@ -3,7 +3,6 @@
 # donné
 resource "aws_key_pair" "kp_instances" {
   key_name = "kp_instances"
-  # généré par ssh-keygen ...
   public_key = file("../ssh-keys/id_rsa_instances.pub")
 }
 

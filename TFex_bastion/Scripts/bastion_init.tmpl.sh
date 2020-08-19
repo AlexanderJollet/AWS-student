@@ -27,13 +27,13 @@ chmod -R u+rwX,go= /root/.ssh
 chmod -R u+rwX,go= /home/ubuntu/.ssh
 chown -R ubuntu:ubuntu /home/ubuntu/.ssh
 
-cat > /home/admin/check_node_ci <<'EOF'
+cat > /home/ubuntu/check_node_ci <<'EOF'
 #!/usr/bin/env bash
 
 for i in $*
 do
-  echo -en "Node : 10.0.0.${i}\t"
-  ssh -o StrictHostKeyChecking=no 10.0.0.$i "ls /tmp/cloud-init* 2> /dev/null" 2> /dev/null
+  echo -en "Node : ${i}\t"
+  ssh -o StrictHostKeyChecking=no $i "ls /tmp/cloud-init* 2> /dev/null" 2> /dev/null
   echo
 done
 EOF

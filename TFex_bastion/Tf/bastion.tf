@@ -34,7 +34,7 @@ resource "aws_instance" "bastion" {
   vpc_security_group_ids      = [ aws_security_group.sg_internal.id,
                                   aws_security_group.sg_bastion.id ]
   subnet_id                   = aws_subnet.subnet_example.id
-  private_ip                  = "10.42.1.254"
+  private_ip                  = var.bastion_ip
   associate_public_ip_address = "true"
   user_data                   = file("../Scripts/bastion_init.sh")
   tags = {

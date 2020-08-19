@@ -8,7 +8,7 @@ resource "aws_security_group" "sg_internal" {
     from_port   = "0"
     to_port     = "0"
     protocol    = "-1"
-    cidr_blocks = ["10.42.1.0/24"]
+    cidr_blocks = [ var.subnet ]
   }
   egress {
     from_port   = 0
