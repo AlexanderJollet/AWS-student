@@ -64,12 +64,13 @@ resource "aws_security_group" "sg_wordpress_bdd" {
 
 resource "aws_instance" "wordpress_front" {
   # Ubuntu 18.04 fournie par AWS
-  ami                         = "ami-0bcc094591f354be2"
+  #ami                         = "ami-0bcc094591f354be2"
+  ami			      = var.amis[var.region]
   instance_type               = "t2.micro"
   key_name                    = "kp_wordpress_common"
   vpc_security_group_ids      = [aws_security_group.sg_wordpress_front.id]
   subnet_id                   = aws_subnet.subnet_wordpress.id
-  private_ip                  = "10.0.0.42"
+  private_ip                  = "10.0.0.41"
   associate_public_ip_address = "true"
   user_data                   = file("../Scripts/wordpress_front_init.sh")
   tags = {
