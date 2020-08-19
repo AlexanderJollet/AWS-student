@@ -17,6 +17,9 @@ Générer les clefs à nouveau.
 cp -r ../TFex/Scripts .
 mkdir ssh-keys
 cp ../TFex/generate_keys ssh-keys
+cd ssh-keys
+./generate_keys
+cd ..
 mkdir Tf
 cp ../Tf/*tf ../Tf/go* Tf/
 cd Tf
