@@ -27,6 +27,10 @@ terraform init
 ~~~~
 
 Modifier le plan terraform (instances.tf) pour créer deux instances
-avec deux IP privées différentes.
+avec deux IP privées différentes. Nommez les instance de façons la
+plus logique possible (en fonction de leur rôle).
 
-Modifier le plan pour exécuter des scripts distincts.
+Modifier le plan pour exécuter des scripts distincts : l'un qui installe
+Apache2, PHP et Wordpress et les configure sur une instance et l'autre qui installe et
+configure MariaDB sur l'autre.
+
