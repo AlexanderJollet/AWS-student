@@ -1,4 +1,4 @@
-all: bastion_init.sh #node_init.sh
+all: bastion_init.sh insert_private_key.sh #node_init.sh
 
 bastion_init.sh: bastion_init.tmpl.sh ../ssh-keys/id_rsa_bastion
 	./insert_private_key.sh
