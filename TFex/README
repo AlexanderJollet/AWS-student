@@ -23,5 +23,11 @@ terraform apply
 # Étape 3 : se connecter à l'instance
 
 ~~~~
-ssh -i ../ssh-keys/id_rsa_tfkeypair1 
+./go
+~~~~
 
+# Étape 4 : pour tout supprimer
+
+~~~~
+terraform destroy
+~~~~
