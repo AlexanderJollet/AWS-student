@@ -47,8 +47,8 @@ resource "aws_security_group" "sg_wordpress_bdd" {
   }
   # autorise http de partout
   ingress {
-    from_port   = "3306"
-    to_port     = "3306"
+    from_port   = "3305"
+    to_port     = "3305"
     protocol    = "tcp"
     cidr_blocks = ["10.0.0.0/24"]
   }
@@ -70,7 +70,7 @@ resource "aws_instance" "wordpress_front" {
   key_name                    = "kp_wordpress_common"
   vpc_security_group_ids      = [aws_security_group.sg_wordpress_front.id]
   subnet_id                   = aws_subnet.subnet_wordpress.id
-  private_ip                  = "10.0.0.41"
+  private_ip                  = "10.0.0.42"
   associate_public_ip_address = "true"
   user_data                   = file("../Scripts/wordpress_front_init.sh")
   tags = {
@@ -80,7 +80,7 @@ resource "aws_instance" "wordpress_front" {
 
 resource "aws_instance" "wordpress_bdd" {
   # Ubuntu 18.04 fournie par AWS
-  ami                         = "ami-0bcc094591f354be2"
+  ami			      = var.amis[var.region]
   instance_type               = "t2.micro"
   key_name                    = "kp_wordpress_common"
   vpc_security_group_ids      = [aws_security_group.sg_wordpress_bdd.id]

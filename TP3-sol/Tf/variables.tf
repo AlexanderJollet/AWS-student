@@ -7,5 +7,9 @@ variable "amis" {
   default = {
     "us-east-1" = "ami-0bcc094591f354be2"
     "us-west-2" = "ami-???"
+    "us-west-1" = "ami-???"
   }
+}
+
+variable "prod" {
 }
