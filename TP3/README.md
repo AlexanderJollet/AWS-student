@@ -6,8 +6,10 @@ L'objectif est de déployer deux instances, l'une installant et
 configurant Apache2/PHP/Wordpress, l'autre MariaDB de façon
 à ce que Wordpress soit fonctionnel 100% automatiquement.
 
-Copier ici les répertoire ssh-keys, Scripts et Tf (et ajouter au git)
-Supprimer les clefs `id_rsa*` du répertoire ssh-key si besoin.
+Copiez ici les répertoire ssh-keys, Scripts et Tf (et ajouter au git)
+(dans Tf ne copiez que go et les fichier `*tf`)
+
+Supprimez les clefs `id_rsa*` du répertoire ssh-key si besoin.
 
 Générer les clefs à nouveau.
 
