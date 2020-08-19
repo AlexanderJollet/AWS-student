@@ -17,4 +17,4 @@ function generate_keypair() {
     fi
 }
 
-generate_keypair id_rsa_tfkeypair1
+generate_keypair id_rsa_wordpress_common
