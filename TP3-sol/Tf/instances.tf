@@ -69,7 +69,7 @@ resource "aws_instance" "wordpress_front" {
   key_name                    = "kp_wordpress_common"
   vpc_security_group_ids      = [aws_security_group.sg_wordpress_front.id]
   subnet_id                   = aws_subnet.subnet_wordpress.id
-  private_ip                  = "10.0.0.1"
+  private_ip                  = "10.0.0.42"
   associate_public_ip_address = "true"
   user_data                   = file("../Scripts/wordpress_front_init.sh")
   tags = {
