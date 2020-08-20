@@ -29,7 +29,7 @@ resource "aws_security_group" "sg_bastion" {
 resource "aws_instance" "bastion" {
   # Ubuntu 18.04 fournie par AWS
   ami                         = var.amis[var.region]
-  instance_type               = "t2.micro"
+  instance_type               = var.bastion_type
   key_name                    = "kp_bastion"
   vpc_security_group_ids      = [ aws_security_group.sg_internal.id,
                                   aws_security_group.sg_bastion.id ]

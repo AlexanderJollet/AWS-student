@@ -29,13 +29,13 @@ resource "aws_security_group" "sg_tfinstance1" {
 
 resource "aws_instance" "tfinstance1" {
   # Ubuntu 18.04 fournie par AWS
-  ami                         = "ami-0bcc094591f354be2"
-  instance_type               = "t2.micro"
+  ami                         = var.amis[var.region] 
+  instance_type               = var.instance_type
   key_name                    = "kp_instances"
   vpc_security_group_ids      = [ aws_security_group.sg_internal.id,
                                   aws_security_group.sg_tfinstance1.id ]
   subnet_id                   = aws_subnet.subnet_example.id
-  private_ip                  = "10.42.1.10"
+  private_ip                  = var.first_instance_ip
   # si nécessaire, une ip publique
   associate_public_ip_address = "true"
   user_data                   = file("../Scripts/instance_init1.sh")

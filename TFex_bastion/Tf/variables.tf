@@ -10,6 +10,18 @@ variable "bastion_ip" {
    default = "10.42.1.254"
 }
 
+variable "first_instance_ip" {
+   default = "10.42.1.10"
+}
+
+variable "bastion_type" {
+   default = "t2.micro"
+}
+
+variable "instance_type" {
+   default = "t2.micro"
+}
+
 variable "amis" {
   type = map
   default = {

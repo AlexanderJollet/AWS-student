@@ -2,7 +2,9 @@
 
 # APT 
 apt -y update
-apt -y upgrade
+# TODO: surveiller les mise à jour de l'AMI Ubuntu 18.04
+# la mise à jour du kernel bloque
+#apt -y -o Dpkg::Options::="--force-confnew" upgrade
 apt -y install dirmngr
 apt -y install git
 cat > /etc/apt/sources.list.d/ansible.list <<EOF
