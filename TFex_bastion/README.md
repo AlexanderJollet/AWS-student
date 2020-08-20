@@ -1,5 +1,7 @@
 # Modèle générérique de déploiement Terraform dans AWS
 
+![](tf1.png)
+
 ## Contenu
 
 - `Scripts` : Modèles (tmpl) de script pour cloud-init
