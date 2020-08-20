@@ -52,8 +52,8 @@ resource "aws_instance" "node" {
                                   aws_security_group.sg_tfinstance1.id ]
   subnet_id                   = aws_subnet.subnet_example.id
   private_ip                  = "${var.net_prefix}.${count.index + 100}"
-  # si nécessaire, une ip publique
-  associate_public_ip_address = "true"
+  # pas d'ip publique... généralement
+  associate_public_ip_address = "false"
   user_data                   = file("../Scripts/instance_init1.sh")
   tags = {
     Name = "node-${count.index + 1}"
