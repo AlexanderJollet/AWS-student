@@ -66,6 +66,10 @@ output "tfinstance1_ip" {
   value = "${aws_instance.tfinstance1.*.public_ip}"
 }
 
+output "tfinstance1_private_ip" {
+  value = "${aws_instance.tfinstance1.*.private_ip}"
+}
+
 output "nodes_private_ip" {
   value = "${aws_instance.node.*.private_ip}"
 }
