@@ -10,6 +10,10 @@ variable "bastion_ip" {
    default = "10.42.1.254"
 }
 
+variable "net_prefix" {
+   default = "10.42.1"
+}
+
 variable "first_instance_ip" {
    default = "10.42.1.10"
 }
@@ -20,6 +24,14 @@ variable "bastion_type" {
 
 variable "instance_type" {
    default = "t2.micro"
+}
+
+variable "node_type" {
+   default = "t2.micro"
+}
+
+variable "node_count" {
+   default = 0
 }
 
 variable "amis" {

@@ -28,7 +28,6 @@ resource "aws_security_group" "sg_tfinstance1" {
 }
 
 resource "aws_instance" "tfinstance1" {
-  # Ubuntu 18.04 fournie par AWS
   ami                         = var.amis[var.region] 
   instance_type               = var.instance_type
   key_name                    = "kp_instances"
@@ -44,7 +43,29 @@ resource "aws_instance" "tfinstance1" {
   }
 }
 
+resource "aws_instance" "node" {
+  count = var.node_count
+  ami                         = var.amis[var.region] 
+  instance_type               = var.node_type
+  key_name                    = "kp_instances"
+  vpc_security_group_ids      = [ aws_security_group.sg_internal.id,
+                                  aws_security_group.sg_tfinstance1.id ]
+  subnet_id                   = aws_subnet.subnet_example.id
+  private_ip                  = "${var.net_prefix}.${count.index + 100}"
+  # si nécessaire, une ip publique
+  associate_public_ip_address = "true"
+  user_data                   = file("../Scripts/instance_init1.sh")
+  tags = {
+    Name = "node-${count.index + 1}"
+  }
+}
+
+
+
 output "tfinstance1_ip" {
   value = "${aws_instance.tfinstance1.*.public_ip}"
 }
 
+output "nodes_private_ip" {
+  value = "${aws_instance.node.*.private_ip}"
+}
