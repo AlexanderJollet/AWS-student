@@ -8,7 +8,7 @@
    - `*.tf` : les ressources à créer
    - `terraform.tfvars` : permet de spécifier des valeurs pour le réseau, la région, les AMI, etc.
 
-## Utilisatation
+## Utilisation
 
 1. Copier les fichiers versionnés dans votre projet :
   - `Scripts/*`
