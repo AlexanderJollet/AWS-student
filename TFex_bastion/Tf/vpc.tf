@@ -1,23 +1,19 @@
-# Changer le nom vpc_example pour un déploiement précis
-# Adapter le réseau
-resource "aws_vpc" "vpc_example" {
+resource "aws_vpc" "vpc_instance_1" {
   cidr_block = var.subnet
 }
 
-# Changer le nom subnet_example pour un déploiement précis
-# Adapter le réseau (voire en ajouter)
-resource "aws_subnet" "subnet_example" {
-  vpc_id                  = aws_vpc.vpc_example.id # cf. ressource ci-dessus
+resource "aws_subnet" "subnet_instance_1" {
+  vpc_id                  = aws_vpc.vpc_instance_1.id
   cidr_block              = var.subnet
   map_public_ip_on_launch = true
 }
 
 resource "aws_internet_gateway" "default" {
-  vpc_id = aws_vpc.vpc_example.id
+  vpc_id = aws_vpc.vpc_instance_1.id
 }
 
 resource "aws_route" "wan_access" {
-  route_table_id         = aws_vpc.vpc_example.main_route_table_id
+  route_table_id         = aws_vpc.vpc_instance_1.main_route_table_id
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = aws_internet_gateway.default.id
 }

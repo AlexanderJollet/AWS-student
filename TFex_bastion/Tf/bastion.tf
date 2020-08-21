@@ -1,12 +1,11 @@
 resource "aws_key_pair" "kp_bastion" {
   key_name = "kp_bastion"
-  # généré par ssh-keygen ...
   public_key = file("../ssh-keys/id_rsa_bastion.pub")
 }
 
 # Adapter le nom à l'usage
-resource "aws_security_group" "sg_bastion" {
-  name   = "sg_bastion"
+resource "aws_security_group" "bastion_group" {
+  name   = "bastion_group"
   vpc_id = aws_vpc.vpc_example.id
   # en entrée
   # autorise ssh de partout
@@ -26,7 +25,7 @@ resource "aws_security_group" "sg_bastion" {
   }
 }
 
-resource "aws_instance" "bastion" {
+resource "aws_instance" "bastion_intance" {
   # Ubuntu 18.04 fournie par AWS
   ami                         = var.amis[var.region]
   instance_type               = var.bastion_type
@@ -38,11 +37,11 @@ resource "aws_instance" "bastion" {
   associate_public_ip_address = "true"
   user_data                   = file("../Scripts/bastion_init.sh")
   tags = {
-    Name = "bastion"
+    Name = "bastion_intance"
   }
 }
 
 output "bastion_ip" {
-  value = "${aws_instance.bastion.*.public_ip}"
+  value = "${aws_instance.bastion_intance.*.public_ip}"
 }
 

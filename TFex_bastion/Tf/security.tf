@@ -1,7 +1,7 @@
 resource "aws_security_group" "sg_internal" {
   # SG pour communication entre instances
   # en particulier entre bastion et instance
-  # on autorise TOUT (parque je le veux)
+  # on autorise TOUT 
   name   = "sg_internal"
   vpc_id = aws_vpc.vpc_example.id
   ingress {
